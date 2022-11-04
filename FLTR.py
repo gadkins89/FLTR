@@ -19,9 +19,9 @@ asap_101_filters = {"1in 1qt Gas": 2, "1in 2qt Gas": 10, "1in 2qt Diesel": 2, "1
 asap_102_filters = {"1in 1qt Diesel": 1, "1in 2qt Gas": 12, "1in 2qt Diesel": 3}
 
 
-def filters_at_location(location_number):
+def filters_used(location_filter_dict):
     print("The filters used for this location are: \n")
-    for k, v in dict.items(location_number):
+    for k, v in dict.items(location_filter_dict):
         print(k, v) 
 
 
@@ -43,8 +43,8 @@ while True:
         print(f"{location_number} is not a valid location number. Please try again. \n")
 
 if location_number == 101:
-   filters_at_location(asap_101_filters)
+    filters_used(asap_101_filters)
 elif location_number == 102:
-    filters_at_location(asap_102_filters)
+    filters_used(asap_102_filters)
     
 
