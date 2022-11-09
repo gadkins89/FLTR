@@ -1,8 +1,14 @@
 #Enter the store number and output the number and type of filters
 #used for that location.
 
+def filters_used(location_filter_dict):
+    print("The filters used for this location are: \n")
+    print("Filters:        Qty: \n")
+    for k, v in dict.items(location_filter_dict):
+        print(f"{k} {v:^11}")
 
-print("""
+def title_welcome():
+    print("""
 ***********************************
 ************* F.L.T.R. ************
 ***********************************
@@ -10,7 +16,8 @@ print("""
 ***********************************
 ********** Version 1.0.0 **********
 ***********************************
-""")
+\n""")
+    input("Welcome! Please press any key to continue. \n")
 
 asap_location_numbers = ["101", "102", "103", "104", "300", "301", "302", "304", "305", "307", "308", "310", "311", "313", "322", "330", "332", "000"]
 
@@ -34,15 +41,7 @@ asap_332_filters = {"1in 1qt Gas": 15, "1in 1qt Dsl": 5, "1.5in HiFlo": 14}
 hydro_filters = {"1in 2qt Gas": 4, "1.5in HiFlo": 4}
 
 
-def filters_used(location_filter_dict):
-    print("The filters used for this location are: \n")
-    print("Filters:        Qty: \n")
-    for k, v in dict.items(location_filter_dict):
-        print(f"{k} {v:^11}")
-
-
-
-welcome_message = input("Welcome! Please press any key to continue. \n")
+title_welcome()
 
 while True:
 
@@ -52,48 +51,53 @@ while True:
         print(f"You entered location number: {location_number}. Is this correct? \n")
         location_confirmation = input("(Y/N) ").lower()
         if location_confirmation == "y":
-            break
+            pass
         else:
             print(" Let us try this again.. \n")
     else:
         print(f"{location_number} is not a valid location number. Please try again. \n")
 
-if location_number == "101":
-    filters_used(asap_101_filters)
-elif location_number == "102":
-    filters_used(asap_102_filters)
-elif location_number == "103":
-    filters_used(asap_103_filters)
-elif location_number == "104":
-    filters_used(asap_104_filters)
-elif location_number == "300":
-    filters_used(asap_300_filters)
-elif location_number == "301":
-    filters_used(asap_301_filters)
-elif location_number == "302":
-    filters_used(asap_302_filters)
-elif location_number == "304":
-    filters_used(asap_304_filters)
-elif location_number == "305":
-    filters_used(asap_305_filters)
-elif location_number == "307":
-    filters_used(asap_307_filters)
-elif location_number == "308":
-    filters_used(asap_308_filters)
-elif location_number == "310":
-    filters_used(asap_310_filters)
-elif location_number == "311":
-    filters_used(asap_311_filters)
-elif location_number == "313":
-    filters_used(asap_313_filters)
-elif location_number == "322":
-    filters_used(asap_322_filters)
-elif location_number == "330":
-    filters_used(asap_330_filters)
-elif location_number == "332":
-    filters_used(asap_332_filters)
-elif location_number == "000":
-    filters_used(hydro_filters)
+   
+    if location_number == "101":
+        filters_used(asap_101_filters)
+    elif location_number == "102":
+        filters_used(asap_102_filters)
+    elif location_number == "103":
+        filters_used(asap_103_filters)
+    elif location_number == "104":
+        filters_used(asap_104_filters)
+    elif location_number == "300":
+        filters_used(asap_300_filters)
+    elif location_number == "301":
+        filters_used(asap_301_filters)
+    elif location_number == "302":
+        filters_used(asap_302_filters)
+    elif location_number == "304":
+        filters_used(asap_304_filters)
+    elif location_number == "305":
+        filters_used(asap_305_filters)
+    elif location_number == "307":
+        filters_used(asap_307_filters)
+    elif location_number == "308":
+        filters_used(asap_308_filters)
+    elif location_number == "310":
+        filters_used(asap_310_filters)
+    elif location_number == "311":
+        filters_used(asap_311_filters)
+    elif location_number == "313":
+        filters_used(asap_313_filters)
+    elif location_number == "322":
+        filters_used(asap_322_filters)
+    elif location_number == "330":
+        filters_used(asap_330_filters)
+    elif location_number == "332":
+        filters_used(asap_332_filters)
+    elif location_number == "000":
+        filters_used(hydro_filters)
     
-#Temporary solution to not auto close after execution.
-input()
+    change_location = input("Would you like to search a different location? (Y/N) \n").lower()
+    if change_location == "y":
+        pass
+    else:
+        input("Press any key to exit. \n")
+        break
