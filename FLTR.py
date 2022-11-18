@@ -1,11 +1,6 @@
 #Enter the store number and output the number and type of filters
 #used for that location.
 
-def filters_used(location_filter_dict):
-    print("The filters used for this location are: \n")
-    print("Filters:        Qty: \n")
-    for k, v in dict.items(location_filter_dict):
-        print(f"{k} {v:^11}")
 
 def title_welcome():
     print("""
@@ -18,6 +13,35 @@ def title_welcome():
 ***********************************
 \n""")
     input("Welcome! Please press any key to continue. \n")
+    return
+
+
+def location_selection():
+    while True:
+
+        location_number = (input("Please enter a location number: \n"))
+
+        if location_number in asap_location_numbers:
+            print(f"You entered location number: {location_number}. Is this correct? \n")
+            location_confirmation = input("(Y/N) ").lower()
+            if location_confirmation == "y":
+                break
+            elif location_confirmation =="n":
+                print(" Let us try this again.. \n")
+            else:
+                print(f"{location_confirmation} is an invalid selection. Please try again. \n")
+        else:
+            print(f"{location_number} is an invalid location number. Please try again. \n")
+    return location_number
+
+
+def filters_used(location_filter_dict):
+    print("The filters used for this location are: \n")
+    print("Filters:        Qty: \n")
+    for k, v in dict.items(location_filter_dict):
+        print(f"{k} {v:^11}")
+    return
+
 
 asap_location_numbers = ["101", "102", "103", "104", "300", "301", "302", "304", "305", "307", "308", "310", "311", "313", "322", "330", "332", "000"]
 
@@ -36,28 +60,19 @@ asap_310_filters = {"1in 2qt Gas": 8, "1in 2qt Dsl": 4}
 asap_311_filters = {"1in 2qt Gas": 24, "1in 2qt Dsl": 8}
 asap_313_filters = {"1in 1qt Gas": 12, "1in 2qt Dsl": 4, "1.5in HiFlo": 10}
 asap_322_filters = {"1in 1qt Gas": 00, "1in 2qt Gas": 00, "1in 2qt Dsl": 00, "1.5in HiFlo": 00}
-asap_330_filters = {"1in 2qt Gas": 18, "1in 2qt Dsl": 6, "1.5in HiFlo": 6}
+asap_330_filters = {"1in 2qt Gas": 13, "1in 2qt Dsl": 4, "1.5in HiFlo": 8}
 asap_332_filters = {"1in 1qt Gas": 15, "1in 1qt Dsl": 5, "1.5in HiFlo": 14}
 hydro_filters = {"1in 2qt Gas": 4, "1.5in HiFlo": 4}
 
 
 title_welcome()
 
+
 while True:
 
-    location_number = (input("Please enter a location number: \n"))
 
-    if location_number in asap_location_numbers:
-        print(f"You entered location number: {location_number}. Is this correct? \n")
-        location_confirmation = input("(Y/N) ").lower()
-        if location_confirmation == "y":
-            pass
-        else:
-            print(" Let us try this again.. \n")
-    else:
-        print(f"{location_number} is not a valid location number. Please try again. \n")
+    location_number = location_selection()
 
-   
     if location_number == "101":
         filters_used(asap_101_filters)
     elif location_number == "102":
@@ -94,10 +109,12 @@ while True:
         filters_used(asap_332_filters)
     elif location_number == "000":
         filters_used(hydro_filters)
-    
+
     change_location = input("Would you like to search a different location? (Y/N) \n").lower()
+
     if change_location == "y":
-        pass
+        continue
     else:
-        input("Press any key to exit. \n")
+        input("Thank you for using F.L.T.R.! Press any key to exit. \n")
+        exit
         break
