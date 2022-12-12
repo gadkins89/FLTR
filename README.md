@@ -1,5 +1,3 @@
-# CS1_Semester_Project
+Projects
 
-F.L.T.R. v1.0.0
-
-This program accepts user input for a location number and outputs the filter list for the selected location.
+This is a collection of my coding projects.
